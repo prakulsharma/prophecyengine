@@ -7,14 +7,16 @@ Doing data cleaning and analyzing its quality manually so that it can be used fo
 # Tools and languages
 Python, Dash, PyCharm
 
-# Virtual Environment Setup
--   Create virtual environment:
+# In Progress
+- Create Dash app to incorporate the EDA scripts
+- Test the developed model scripts for prediction
 
+# Virtual Environment Setup
+- Create virtual environment:
 ``` 
 mkvirtualenv -p `which python3.7` eda-prophecy-app
 ```
--   Install dependencies:
-
+- Install dependencies:
 ```
 pip install -r requirements.txt --extra-index-url https://pypi.python.org/simple
 ```
