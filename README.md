@@ -9,13 +9,16 @@ Python, Dash, PyCharm
 
 # Virtual Environment Setup
 -   Create virtual environment:
-        mkvirtualenv -p `which python3.7` eda-prophecy-app
+
+``` 
+mkvirtualenv -p `which python3.7` eda-prophecy-app
+```
 -   Install dependencies:
-        pip install -r requirements.txt --extra-index-url https://pypi.python.org/simple
+
+```
+pip install -r requirements.txt --extra-index-url https://pypi.python.org/simple
+```
 
 
    
   
-
-
-
