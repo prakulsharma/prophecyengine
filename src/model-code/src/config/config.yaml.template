@@ -1,0 +1,59 @@
+
+---
+# filepath and date format of scoring csv file (to be used in 'score.py'). local scoring
+score_input_fpath: <str>                         # filepath of score data
+score_output_fpath: <str>                  # filepath to save the score output
+score_date_fmt: <str>                      #'%Y-%m-%d %H:%M:%S','%d-%m-%Y %H:%M'            # date format in the score_fpath file
+score_datetime_col: <int>                  # column index of datetime column
+score_start_date: null                             # Score start date - datetime list  [Y, m, d, h, m, s]  without zero padding i.e [2019,12,18,0,0,0], default null will take first date
+score_end_date: null                             # score end date - datetime list  [Y, m, d, h, m, s]  without zero padding i.e [2019,12,18,0,0,0], default null will take end date
+local_train_score: 'True'                  # enable it for local training and testing purpose
+model_name: <str>                               # to be used for logging (local scoring only)
+
+#score parameters, make sure True methods are subset of True methods in training param
+# same scoring parameters should be set in the analytic interface also
+score_param:
+  'debug': <str>                         # 'True' or 'False'
+  'method-OCSVM': <str>                  # 'True' or 'False'
+  'method-PCA': <str>                    # 'True' or 'False'
+  'method-KNN': <str>                    # 'True' or 'False'
+  'method-AUTOENCODER': <str>            # 'True' or 'False'
+  'agreement_factor': <str(float)>       # i.e '0.3'
+  'norm_flag': 'True'                       # set this flag to 1 for normalization of anomaly score to 1 based on set threshold
+  'threshold': <str(float)>              #  score above which anomaly will be considered and normalized against it to 1
+  'raise_alert_count': <str(int)>        # No of anomalies above threshold
+  'allowed_tags': null                   # specify taglist , if null all tags will be used, make sure score and train allowed tags are same
+
+# filepath and dateformat for training file (to be used in train.py)
+train_input_fpath: <str>                      # filepath of training data
+trained_model_path: null                         #training output path (if null environment variable path will be used)
+train_date_fmt: <str>                   # date format in the train_fpath file i.e '%Y-%m-%d %H:%M:%S'
+train_datetime_col: <int>               #  column index(int) of datetime column in file
+train_start_date: null                          # train start date - datetime list  [Y, m, d, h, m, s]  without zero padding i.e [2019,12,18,0,0,0], default null will take first date
+train_end_date: null                          # train end date - datetime list  [Y, m, d, h, m, s]  without zero padding i.e [2019,12,18,0,0,0], default null will take end date
+
+# This is default setting, modify as per project requirements
+# Use OCSVM method only if dataset is small. This is extremely slow method
+# Set PCA-n_components less than  number of input variables
+train_param:
+    'debug': <str>                         # 'True' or 'False', '1' or '0'
+    'method-OCSVM': <str>                  # 'True' or 'False'
+    'OCSVM-contamination': '0.001'         # % of anomaly in training data
+    'method-PCA': <str>                   # 'True' or 'False'
+    'PCA-contamination': '0.001'
+    'PCA-n_components': <str(int)>         # set an string integer lower than number of allowed tags i.e '30'
+    'method-KNN': <str>                    # 'True' or 'False'
+    'KNN-contamination': '0.001'
+    'KNN-n_neighbors': '5'
+    'KNN-method': 'largest'
+    'method-AUTOENCODER': <str(int)>         #  'True' or 'False'
+    'AUTOENCODER-contamination': '0.001'
+    'AUTOENCODER-epochs': '50'
+    'AUTOENCODER-verbose': '1'
+    'AUTOENCODER-preprocessing': '0'
+    'AUTOENCODER-batch_size': '32'
+    'AUTOENCODER-hidden_neurons': '[64, 32, 32, 64]'   #edit if needed
+    'allowed_tags': null                  # add taglist ['FV-1005',FI-1205C',...] (if null all tags will be used), make sure score and train allowed tags are same
+
+
+
