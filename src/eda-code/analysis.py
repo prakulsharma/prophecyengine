@@ -204,11 +204,8 @@ def plot_scatter(df: pd.DataFrame, columns: list, use_column_indices=False, norm
 
 
 # Private methods
-
-
 def _find_empty_columns(df: pd.DataFrame):
     return [col for col in df.columns if df[col].isnull().all()]
-
 
 def _find_percent_nulls_per_row(df: pd.DataFrame):
     """
@@ -317,8 +314,6 @@ def _find_percent_negative_per_column(df: pd.DataFrame):
 
 
 # plotly charting functions
-
-
 def plot_correlation_matrix_plotly(df: pd.DataFrame, columns=None, h=500, w=1000, debug=True, **kwargs):
     if columns is not None:
         df = df[columns]
