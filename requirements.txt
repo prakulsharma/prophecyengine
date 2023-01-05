@@ -4,8 +4,6 @@ pyod==0.7.1
 keras==2.3.1
 scipy==1.4.1
 tensorflow==2.0.0
-symphonyai-artifactor==0.3.0
-symphonyai-analytic-utils==0.5.1
 numpy==1.18.1
 matplotlib==3.2.0
 dash==1.12.0
